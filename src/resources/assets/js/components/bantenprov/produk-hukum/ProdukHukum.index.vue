@@ -170,8 +170,11 @@ export default {
     createRow() {
       window.location = '#/admin/produk-hukum/create';
     },
+    // viewRow(rowData) {
+    //   window.location = '#/admin/produk-hukum/' + rowData.id;
+    // },
     viewRow(rowData) {
-      window.location = '#/admin/produk-hukum/' + rowData.id;
+      window.location = '#/produk-hukum/' + rowData.id;
     },
     editRow(rowData) {
       window.location = '#/admin/produk-hukum/' + rowData.id + '/edit';

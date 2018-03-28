@@ -106,6 +106,37 @@ $ php artisan vendor:publish --tag=produk-hukum-public
 ```
 
 ```javascript
+function layout(name) {
+  return function(resolve) {
+    require(['./layouts/' + name + '.vue'], resolve);
+  }
+}
+
+let routes = [
+    //== ...
+
+    {
+    path: '/produk-hukum',
+    name: 'home',
+    component: resolve => require(['./components/bantenprov/produk-hukum/ProdukHukum.index.vue'], resolve),
+    meta: {
+        title: "Produk Hukum"
+    }
+  },
+  {
+    path: '/produk-hukum/:id',
+    name: 'home',
+    component: resolve => require(['./components/bantenprov/produk-hukum/ProdukHukum.show.vue'], resolve),
+    meta: {
+        title: "Produk Hukum"
+    }
+  },
+
+  //== ...
+```
+
+```javascript
+
 {
     path: '/admin',
     redirect: '/admin/dashboard/home',
@@ -132,17 +163,6 @@ $ php artisan vendor:publish --tag=produk-hukum-public
             },
             meta: {
                 title: "Add ProdukHukum"
-            }
-        },
-        {
-            path: '/admin/produk-hukum/:id',
-            components: {
-                main: resolve => require(['./components/bantenprov/produk-hukum/ProdukHukum.show.vue'], resolve),
-                navbar: resolve => require(['./components/Navbar.vue'], resolve),
-                sidebar: resolve => require(['./components/Sidebar.vue'], resolve)
-            },
-            meta: {
-                title: "View ProdukHukum"
             }
         },
         {
